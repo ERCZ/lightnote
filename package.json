@@ -12,7 +12,6 @@
   "author": "xyz-studio",
   "license": "MIT",
   "dependencies": {
-    "consolidate": "^0.16.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
