@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忘记密码 | {{ website.name }}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body id="forget-wrapper">
+    <form action="/api/forget/" method="post" id="forget" autocomplete="off">
+        <h1>Forget</h1>
+        <label>邮箱：
+            <input type="email" name="email" required>
+        </label>
+        <label>新密码：
+            <input type="password" name="newpassword" required>
+        </label>
+        <label>确认新密码：
+            <input type="password" name="confirmpassword" required>
+        </label>
+        <label>验证码：
+            <input type="text" name="authcode" required>
+        </label>
+        <input type="button" value="获取验证码" id="getauthcode">
+        <input type="submit" value="重置密码">
+    </form>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="/tip.js"></script>
+    <script src="/register.js"></script>
+</body>
+</html>

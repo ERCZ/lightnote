@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签 | {{ website.name }}</title>
+    <meta name="keywords" content="{{ website.keyword|join(",") }}">
+    <meta name="description" content="{{ website.desc }}">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+{% include "./theme/default/components/header.njk" %}
+{% include "./theme/default/components/main-tag.njk" %}
+{% include "./theme/default/components/footer.njk" %}
+</body>
+</html>

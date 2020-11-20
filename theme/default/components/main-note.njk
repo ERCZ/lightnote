@@ -1,0 +1,60 @@
+{% extends "./main.njk" %}
+
+{% block left %}
+<div id="note">
+    <h1 id="note-title">{{ data.note.title }}</h1>
+    <div id="note-content">
+    {{ data.note.content | safe }}
+    </div>
+    <hr/>
+    <div id="note-info">
+        <p>标签:
+        {% for tag in data.note.tags %}
+            <span class="tag"><a href="/tag/{{tag.name}}">{{ tag.name }}</a></span>
+        {% endfor %}
+        </p>
+        <p>归档于:
+        {% for archive in data.note.archives %}
+            &ensp;<a href="/archive/{{archive.name}}">{{ archive.name }}</a>
+        {% endfor %}
+        </p>
+        <p>上次修改时间：{{ data.note.updatedAt.toLocaleString() }}</p>
+    </div>
+    <hr/>
+    <p>
+    {% if authInfo.logined %}
+        <button id="post-comment">发表评论</button>
+    {% else %}    
+        <a href="/login/"><button>登录后评论</button></a>
+    {% endif %}
+    </p>
+    <ul id="note-comments">
+    {% for comment in data.note.comments %}
+        <li>
+            <p class="note-comment-title">
+                {% if comment.from %}
+                <span>{{ comment.from.username }}</span>
+                {% else %}
+                <span>已注销用户</span>
+                {% endif %}
+                {% if comment.to.username %}
+                &ensp;回复&ensp;<span>{{ comment.to.username }}</span>
+                {% endif %}
+                :
+            </p>
+            <p class="note-comment-main">{{ comment.content }}</p>
+            <p class="note-comment-footer">
+            {% if authInfo.logined and comment.from %}
+            <a href="javascript:void(0);" class="reply" data-userid="{{comment.from.userid}}">回复&ensp;</a>
+            {% endif %}
+            {{ comment.createdAt.toLocaleString() }}
+            </p>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block right %}
+{% include "./aside.njk" %}
+{% endblock %}

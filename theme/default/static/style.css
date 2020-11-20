@@ -1,0 +1,552 @@
+/* start 通用样式部分 */
+html,body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+html {
+    font-size: 12px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    color: #424055;
+    letter-spacing: .1em;
+    background-color: #f1f3f4;
+    font-family: "思源黑体", "微软雅黑", Arial, sans-serif;
+}
+div,
+h1,h2,h3,h4,h5,h6,
+ul,ol,li {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color ease .3s;
+}
+a:link {
+    color: inherit;
+}
+a:visited {
+    color: inherit;
+}
+a:hover {
+    color: #42b983;
+}
+a:active {
+    color: #42b983;
+}
+@media (max-width:480px){
+    html {
+        font-size: 10px;
+    }
+}
+/* end 通用样式部分 */
+
+/* start header部分 */
+#header-wrapper {
+    position: relative;
+    background-color: #07161d;
+    margin-bottom: 20px;
+}
+#header-wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+#header {
+    background-color: #07161d;
+    background-image: url('/header-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    max-width: 1920px;
+    margin: 0 auto;
+    transition: height ease .5s;
+}
+#header-main {
+    z-index: 9;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    padding: 0 1rem 10px;
+    overflow: hidden;
+    transition: width ease .5s;
+}
+#header-left {
+    padding-top: 280px;
+    transition: padding-top ease .5s;
+}
+#header-title {
+    font-size: 4rem;
+    margin-bottom: 5px;
+    margin-top: 0;
+    transition: font-size ease .5s;
+}
+#header-subtitle {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: font-size ease .5s;
+}
+#header-right {
+    margin-top: 10px;
+}
+#header-nav {
+    padding: 0;
+    margin: 0;
+}
+#header-nav .header-nav-item {
+    display: inline-block;
+    margin-left: 1.5em;
+}
+#header-nav .header-nav-item a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+#header-nav .header-nav-item a:hover {
+    color: #42b983;
+}
+@media (min-width:1024px){
+    #header-main {
+        width: 1024px;
+    }
+}
+@media (max-width:720px){
+    #header-wrapper {
+        margin-bottom: 0;
+    }
+    #header-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #header-left {
+        padding-top: 250px;
+    }
+    #header-nav .header-nav-item {
+        margin-left: 0;
+        margin-right: 1.5em;
+    }
+}
+@media (max-width:480px){
+    #header-left {
+        padding-top: 20px;
+    }
+}
+/* end header部分 */
+
+/* start main部分 */
+#main {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+}
+#main-left {
+    flex: 1;
+    padding: 1rem 0;
+    overflow: hidden;
+    transition: padding-top ease .3s;
+}
+#main-right {
+    width: 250px;
+    margin-left: 20px;
+    padding: 1rem 0;
+}
+@media (max-width:720px) {
+    #main {
+        flex-direction: column;
+    }
+    #main-left {
+        padding-top: 0;
+        width: 100%;
+    }
+    #main-right {
+        flex: 1;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+/* start main-index,main-archive部分 */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    margin: 0;
+    background-color: #fff;
+}
+#note-list-info {
+    font-size: 16px;
+    color: #42b983;
+    padding: 0 1rem;
+}
+#note-list-info p {
+    margin: 0;
+    padding-top: 10px;
+}
+#note-list, #archive-list {
+    background-color: #fff;
+}
+.note-item, .archive-item {
+    padding: 16px;
+    position: relative;
+}
+.note-item::after, .archive-item::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: transparent;
+    bottom: 0;
+    right: 0;
+    transition: background-color ease .5s;
+}
+.note-item:hover::after, .archive-item:hover::after {
+    background-color: #42b983;
+}
+.note-item-header, .archive-item-header {
+    padding: 5px 10px 5px;
+    position: relative;
+}
+.note-item-header::before, .archive-item-header::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: #42b983;
+    top: 0;
+    left: 0;
+}
+.note-title, .archive-title {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+}
+.note-item-body, .archive-item-body {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+.note-item-body p, .archive-item-body p {
+    margin: 5px 0;
+}
+.tag {
+    display: inline-block;
+    padding: 5px;
+    margin: 2px 5px;
+    border: 1px solid #42b983;
+    font-size: 1rem;
+    line-height: 1rem;
+    border-radius: 999px;
+    transition: background-color ease .5s;
+}
+.tag:hover {
+    background-color: #42b983;
+}
+.tag a {
+    color: #42b983;
+}
+.tag:hover a {
+    color: #fff;
+}
+/* end main-index,main-archive部分 */
+/* start main-tag部分 */
+#tags {
+    background-color: #fff;
+    padding: 16px;
+    text-align: center;
+}
+/* end main-tag部分 */
+/* start main-note部分 */
+#note {
+    word-break: break-all;
+    background-color: #fff;
+    padding: 16px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+#note-content :not(pre) code {
+    background-color: #f8f8f8;
+    color: #d63280;
+    padding: 0 5px;
+}
+#note-content blockquote {
+    margin: 0;
+    padding: 5px 15px;
+    background-color: #f8f8f8;
+    position: relative;
+}
+#note-content blockquote::before {
+    content: '';
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #42b983;
+}
+#note-content img {
+    max-width: 100%;
+}
+#note-info p:nth-child(2) a {
+    font-style: italic;
+}
+#note-comments {
+    margin: 0;
+    padding: 0;
+}
+#note-comments li {
+    list-style: none;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+#note-comments li p {
+   margin: 0;
+}
+#note-comments .note-comment-main {
+    padding: .3em 2em;
+}
+#note-comments .note-comment-footer {
+    text-align: right;
+}
+.mask {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0,0,0,.5);
+}
+.mask form, .mask>div {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.mask>div {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 14px;
+}
+form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: none;
+    outline: none;
+}
+/* end main-note部分 */
+/* start aside部分 */
+.aside-item {
+    padding: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    line-height: 1.7;
+    transition: margin-bottom ease .3s;
+}
+.aside-item:hover {
+    box-shadow: rgba(0, 0, 0, .2) 2px 3px 5px;
+}
+.aside-item:last-child {
+    margin-bottom: 0;
+}
+.aside-item-header {
+    padding: 5px 10px 5px;
+    position: relative;
+    font-size: 14px;
+    line-height: 14px;
+}
+.aside-item-header::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: #42b983;
+    top: 0;
+    left: 0;
+}
+.aside-item-body {
+    padding: 10px;
+}
+.aside-item-body ul {
+   padding-left: 20px;
+   font-size: 13px;
+}
+.aside-item-body img {
+    max-width: 100%;
+    object-fit: contain;
+}
+@media (max-width: 720px){
+    .aside-item {
+        margin-bottom: 0;
+    }
+}
+/* end aside部分 */
+/* end main部分 */
+
+/* start about部分 */
+#about-wrapper {
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px auto;
+    background-color: #fff;
+    overflow: hidden;
+}
+#about-header {
+    padding: 40px 10px 20px;
+    text-align: center;
+}
+#about-header .avatar {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border-radius: 40px;
+}
+#about-header .nickname {
+    margin: 5px 0;
+    font-size: 24px;
+    line-height: 24px;
+}
+#about-content {
+    padding: 10px;
+}
+/* end about部分 */
+
+/* start footer部分 */
+#footer {
+    margin-top: 20px;
+    background-color: #07161d;
+}
+#footer-main {
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+    max-width: 1024px;
+    text-align: center;
+    color: #fff;
+}
+/* end footer部分 */
+
+/* start login,register部分 */
+.tip {
+    width: 80%;
+    max-width: 300px;
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, .3);
+    color: #fff;
+    font-size: 14px;
+    z-index: 9;
+}
+.tip.success {
+    background-color: #54e490;
+}
+.tip.warning {
+    background-color: rgb(243, 219, 85);
+}
+.tip.error {
+    background-color: rgb(207, 90, 90);
+}
+form {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+}
+#login-wrapper, #register-wrapper, #forget-wrapper, #error-wrapper {
+    background-image: url('https://open.saintic.com/api/bingPic/?picSize=2');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#login, #register, #forget {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgba(255, 255, 255, .7);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, .3);
+}
+form label {
+    display: block;
+    margin: 10px 0;
+}
+form h1 {
+    color: #42b983;
+    text-align: center;
+}
+form input[type=submit],
+form input[type=button] {
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    background-color: #42b983;
+    outline: none;
+    cursor: pointer;
+}
+form select {
+    height: 22px;
+}
+form a {
+    font-size: 13px;
+    color: blue;
+}
+form a:visited, form a:link {
+    color: blue;
+}
+form label input[type=text],
+form label input[type=email],
+form label input[type=password] {
+    color: #07161d;
+    display: block;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, .4);
+}
+/* end login,register部分 */
+
+/* start error部分 */
+#error {
+    width: auto;
+    max-width: 100%;
+    margin: 10% auto auto;
+    text-align: right;
+    letter-spacing: 1em;
+    text-shadow: 5px 5px 20px rgba(0, 0, 0, .4);
+}
+#error h1 {
+    color: coral;
+    font-size: 10rem;
+    margin: 0;
+}
+#error h2 {
+    color: deepskyblue;
+    font-size: 2.2rem;
+    margin-top: -2rem;
+}
+/* end error部分 */

@@ -1,0 +1,57 @@
+{% extends "./main.njk" %}
+
+{% block left %}
+<div id="note-list">
+    {% if ext.type != 'index' %}
+    <div id="note-list-info">
+        {% if ext.type == 'tag' %}
+        <p>{{data.name}}标签下的文章:</p>
+        {% elif ext.type == 'archive' %}
+        <p>{{data.name}}归档下的文章:</p>
+        {% endif %}
+    </div>    
+    {% endif %}
+    {% for note in data.notes %}
+    <div class="note-item">
+        <div class="note-item-header">
+            <h2 class="note-title"><a href="/note/{{ note.friendlyName }}">{{ note.title }}</a></h2>
+        </div>
+        <div class="note-item-body">
+            <p class="note-digest">
+            {{ note.desc }}
+            </p>
+            <p>
+            {% for tag in note.tags %}
+                <span class="tag"><a href="/tag/{{tag.name}}">{{ tag.name }}</a></span>
+            {% endfor %}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    <p class="pagination">
+    {% if ext.curPage == 1 %}
+        <span></span>
+    {% else %}
+        {% if ext.type == 'index' %}
+        <a href="/?page={{ext.curPage - 1}}">&lt;上一页</a>
+        {% else %}
+        <a href="/{{ext.type}}/{{data.name}}?page={{ext.curPage - 1}}">&lt;上一页</a>
+        {% endif %}
+    {% endif %}
+        <span>{{ext.curPage}}/{{ext.pageCount}}</span>
+    {% if ext.curPage == ext.pageCount %}
+        <span></span>
+    {% else %}
+        {% if ext.type == 'index' %}
+        <a href="/?page={{ext.curPage + 1}}">下一页&gt;</a>
+        {% else %}
+        <a href="/{{ext.type}}/{{data.name}}?page={{ext.curPage + 1}}">&lt;下一页</a>
+        {% endif %}
+    {% endif %}
+    </p>
+</div>
+{% endblock %}
+
+{% block right %}
+{% include "./aside.njk" %}
+{% endblock %}

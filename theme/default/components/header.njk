@@ -1,0 +1,39 @@
+<div id="header-wrapper">
+    <div id="header">
+        <div id="header-main">
+            <div id="header-left">
+                <h1 id="header-title">{{ themeConfig.header.title }}</h1>
+                <h2 id="header-subtitle">{{ themeConfig.header.subtitle }}</h2>
+            </div>
+            <div id="header-right">
+                <ul id="header-nav">
+                    <li class="header-nav-item">
+                        <a href="/">首页</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="/archive/">归档</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="/tag/">标签</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="/about/">关于</a>
+                    </li>
+                    {% if authInfo.logined == false %}
+                    <li class="header-nav-item">
+                        <a href="/login/">登录</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="/register/">注册</a>
+                    </li>
+                    {% elif authInfo.user.level === 0 %}
+                    <li class="header-nav-item">
+                        <a href="/background/">管理</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <canvas class="header-background"></canvas>
+</div>

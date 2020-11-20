@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if ext.type == "archive" %}
+    <title>{{ data.name }} - 归档 | {{ website.name }}</title>
+    {% elif ext.type == "tag" %}
+    <title>{{ data.name }} - 标签 | {{ website.name }}</title>
+    {% else %}
+    <title>{{ website.name }}</title>
+    {% endif %}
+    <meta name="keywords" content="{{ website.keyword|join(",") }}">
+    <meta name="description" content="{{ website.desc }}">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+{% include "./theme/default/components/header.njk" %}
+{% include "./theme/default/components/main-index.njk" %}
+{% include "./theme/default/components/footer.njk" %}
+</body>
+</html>

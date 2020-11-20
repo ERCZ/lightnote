@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{{ website.keyword|join(",") }}">
+    <meta name="description" content="{{ website.desc }}">
+    <title>关于 | {{ website.name }}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="about-wrapper">
+        <div id="about-header">
+            <img class="avatar" src="{{ themeConfig.about.avatar }}" alt="avatar">
+            <h1 class="nickname">{{ themeConfig.about.nickname }}</h1>
+            <p class="intro">{{ themeConfig.about.intro }}</p>
+        </div>
+        <hr/>
+        <div id="about-content">
+            <div id="note-content">{{ aboutContent|safe }}</div>
+        </div>
+    </div>
+</body>
+</html>

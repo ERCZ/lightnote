@@ -1,0 +1,134 @@
+p {
+    word-break: break-all;
+}
+button {
+    padding: 5px 10px;
+    border: none;
+    margin-right: 10px;
+    outline: none;
+    color: #fff;
+}
+button#ok {
+    background-color: #92e445;
+}
+form label {
+    display: inline;
+}
+form fieldset {
+    border: none;
+    padding: 0;
+    display: block;
+    margin-bottom: 10px;
+}
+form p {
+    margin: 0;
+}
+form input[type=file] {
+    display: block;
+}
+button#cancel {
+    background-color: rgb(221, 107, 107);
+}
+#background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+#background-aside {
+    width: 200px;
+    padding: 0 10px;
+    background-color: #424055;
+    color: #fff;
+}
+#background-aside h1 {
+    color: #64cece;
+    font-size: 30px;
+}
+#background-aside li{
+    list-style: none;
+    margin: 10px 5px;
+    font-size: 16px;
+}
+#background-aside li a {
+    color: #fff;
+    font-style: normal;
+}
+#background-aside li a.active {
+    color: #64cece;
+}
+#background-main {
+    flex: 1;
+    overflow: hidden;
+    background-color: #fff;
+    transition: all ease .5s;
+}
+#background-main .add {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    border: 1px solid #64cece;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-style: normal;
+}
+.background-main-item {
+    width: 100%;
+    height: 100vh;
+    padding: 10px 5px;
+    overflow: auto;
+}
+.background-main-item select {
+    height: 34px;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #64cece;
+    border-radius: 5px;
+}
+.background-main-item label {
+    font-size: 14px;
+    vertical-align: baseline;
+    margin-left: 10px;
+}
+.background-main-item table{
+    border: none;
+    border-collapse: collapse;
+    min-width: 100%;
+    font-size: 14px;
+}
+.background-main-item th {
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    background-color: #bbb;
+}
+.background-main-item tr {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.background-main-item tr:hover {
+    background-color: #ddd;
+}
+.background-main-item tr td {
+    padding: 5px;
+}
+.background-main-item tr a {
+    color: blue;
+    text-decoration: underline;
+    display: inline-block;
+    margin: 0 5px;
+}
+.more-container {
+    text-align: center;
+}
+.more {
+    text-align: center;
+    color: #999999;
+    font-size: 14px;
+    cursor: pointer;
+}
+.more:hover,#background-aside li a:hover {
+    color: #64cece;
+}

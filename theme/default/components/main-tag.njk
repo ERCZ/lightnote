@@ -1,0 +1,13 @@
+{% extends "./main.njk" %}
+
+{% block left %}
+<div id="tags">
+    {% for tag in data.tags %}
+        <span class="tag"><a href="/tag/{{tag.name}}">{{ tag.name }}</a></span>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block right %}
+{% include "./aside.njk" %}
+{% endblock %}

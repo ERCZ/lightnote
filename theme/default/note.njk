@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.note.title }} | {{ website.name }}</title>
+    <meta name="keywords" content="{{ data.note.tags|join(",") }}">
+    <meta name="description" content="{{ data.note.desc }}">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/styles/atom-one-dark.min.css" rel="stylesheet">
+</head>
+<body>
+{% include "./theme/default/components/header.njk" %}
+{% include "./theme/default/components/main-note.njk" %}
+{% include "./theme/default/components/footer.njk" %}
+<div class="mask">
+    <form action="/api/comment/" method="post" id="edit-comment">
+        <input type="text" name="noteid" style="display: none;" value="{{data.note.noteid}}">
+        <input type="text" name="to" style="display: none;">
+        <label>内容:
+            <textarea name="content"></textarea>
+        </label>
+        <input type="submit" value="提交">
+    </form>
+</div>
+<script src="/tip.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0/axios.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+<script src="/note.js"></script>
+</body>
+</html>

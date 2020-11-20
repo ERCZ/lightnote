@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理 | {{ website.name }}</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/background.css">
+</head>
+<body>
+    <div id="background">
+        <div id="background-aside">
+            <h1>Lightnote</h1>
+            <ul>
+                <li><a data-type="note" class="active" href="#note-manage">文章管理</a></li>
+                <li><a data-type="user" href="#user-manage">用户管理</a></li>
+                <li><a data-type="archive" href="#archive-manage">归档管理</a></li>
+                <li><a data-type="tag" href="#tag-manage">标签管理</a></li>
+                <li><a data-type="comment" href="#comment-manage">评论管理</a></li>
+            </ul>
+        </div>
+        <div id="background-main">
+            <div id="note-manage" class="background-main-item">
+                <p>
+                    <a href="javascript:void(0);" data-type="note" class="add">新&ensp;建</a>
+                    <select name="orderBy" id="order-note" data-type="note">
+                        <option value="updatedAt">按更新时间排序</option>
+                        <option value="createdAt">按创建时间排序</option>
+                        <option value="noteid">按ID排序</option>
+                        <option value="viewCount">按访问量排序</option>
+                    </select>
+                    <label>逆序<input data-type="note" type="checkbox" name="desc" id="desc-note" checked></label>
+                </p>
+                <table data-type="note">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>标题</th>
+                            <th>更新于</th>
+                            <th>公开</th>
+                            <th>浏览量</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="more-container"><a class="more" data-type="note">加载更多</a></p>
+            </div>
+            <div id="user-manage" class="background-main-item">
+                <p>
+                    <a href="javascript:void(0);" data-type="user" class="add">新&ensp;建</a>
+                    <select name="orderBy" id="order-user" data-type="user">
+                        <option value="userid">按ID排序</option>
+                    </select>
+                    <label>逆序<input data-type="user" type="checkbox" name="desc" id="desc-user"></label>
+                </p>
+                <table data-type="user">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>邮箱</th>
+                            <th>账户类型</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="more-container"><a class="more" data-type="user">加载更多</a></p>
+            </div>
+            <div id="archive-manage" class="background-main-item">
+                <p>
+                    <a href="javascript:void(0);" data-type="archive" class="add">新&ensp;建</a>
+                    <select name="orderBy" id="order-archive" data-type="archive">
+                        <option value="archiveid">按ID排序</option>
+                    </select>
+                    <label>逆序<input data-type="archive" type="checkbox" name="desc" id="desc-archive"></label>
+                </p>
+                <table data-type="archive">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="more-container"><a class="more" data-type="archive">加载更多</a></p>
+            </div>
+            <div id="tag-manage" class="background-main-item">
+                <p>
+                    <a href="javascript:void(0);" data-type="tag" class="add">新&ensp;建</a>
+                    <select name="orderBy" id="order-tag" data-type="tag">
+                        <option value="tagid">按ID排序</option>
+                    </select>
+                    <label>逆序<input data-type="tag" type="checkbox" name="desc" id="desc-tag"></label>
+                </p>
+                <table data-type="tag">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="more-container"><a class="more" data-type="tag">加载更多</a></p>
+            </div>
+            <div id="comment-manage" class="background-main-item">
+                <p>
+                    <a href="javascript:void(0);" data-type="comment" class="add">新&ensp;建</a>
+                    <select name="orderBy" id="order-comment" data-type="comment">
+                        <option value="createdAt">按发表时间排序</option>
+                        <option value="commentid">按ID排序</option>
+                    </select>
+                    <label>逆序<input data-type="comment" type="checkbox" name="desc" id="desc-comment" checked></label>
+                </p>
+                <table data-type="comment">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>来自于</th>
+                            <th>发送给</th>
+                            <th>发表于</th>
+                            <th>内容概览</th>
+                            <th>发表时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="more-container"><a class="more" data-type="comment">加载更多</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="mask"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="/tip.js"></script>
+    <script src="/background.js"></script>
+</body>
+</html>

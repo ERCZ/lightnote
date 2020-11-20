@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 | {{ website.name }}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body id="login-wrapper">
+    <form action="/api/login/" method="post" id="login" autocomplete="off">
+        <h1>Login</h1>
+        <label>邮箱：
+            <input type="email" name="email" required>
+        </label>
+        <label>密码：
+            <input type="password" name="password" required>
+        </label>
+        <input type="submit" value="登 录">
+        <p>
+            <a href="/forget/">忘记密码</a><br>
+            <a href="/register/">没有账号,去注册</a>
+        </p>
+    </form>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="/tip.js"></script>
+    <script src="/login.js"></script>
+</body>
+</html>

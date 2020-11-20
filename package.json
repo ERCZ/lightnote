@@ -1,0 +1,31 @@
+{
+  "name": "lightnote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "xyz-studio",
+  "license": "MIT",
+  "dependencies": {
+    "consolidate": "^0.16.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-compress": "^5.0.1",
+    "koa-html-minifier": "^2.0.0",
+    "koa-router": "^9.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.3.1",
+    "log4js": "^6.3.0",
+    "markdown-it": "^9.0.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.14",
+    "nunjucks": "^3.2.2",
+    "redis": "^3.0.2"
+  }
+}

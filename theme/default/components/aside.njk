@@ -1,0 +1,47 @@
+<div class="aside-item" id="bulletin-board">
+    <div class="aside-item-header">公告栏</div>
+    <div class="aside-item-body">{{ themeConfig.aside.bulletin|safe }}</div>
+</div>
+<div class="aside-item" id="admire">
+    <div class="aside-item-header">赞赏</div>
+    <div class="aside-item-body">{{ themeConfig.aside.admire|safe }}</div>
+</div>
+<div class="aside-item" id="tag-cloud">
+    <div class="aside-item-header">标签云</div>
+    <div class="aside-item-body">
+    {% for tag in aside.tags %}
+        <span class="tag"><a href="/tag/{{tag.name}}">{{tag.name}}</a></span>
+    {% endfor %}
+        <span class="tag"><a href="/tag/">查看全部</a></span>
+    </div>
+</div>
+<div class="aside-item" id="newest-notes">
+    <div class="aside-item-header">最新文章</div>
+    <div class="aside-item-body">
+        <ul>
+        {% for note in aside.newNotes %}
+            <li><a href="/note/{{note.friendlyName}}">{{ note.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="aside-item" id="hotest-notes">
+    <div class="aside-item-header">最热文章</div>
+    <div class="aside-item-body">
+        <ul>
+        {% for note in aside.hotNotes %}
+            <li><a href="/note/{{note.friendlyName}}">{{ note.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="aside-item" id="friendly-link">
+    <div class="aside-item-header">友情链接</div>
+    <div class="aside-item-body">
+        <ul>
+        {% for link in themeConfig.aside.friendlyLink %}
+            <li><a href="{{link.url}}">{{ link.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
