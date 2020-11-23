@@ -52,8 +52,8 @@ module.exports = {
                 };
                 let rs = fs.createReadStream(file.path);
                 let ws = fs.createWriteStream(`./note/${note.friendlyName}.md`);
+                rs.on('close', () => { fs.unlinkSync(file.path); });
                 rs.pipe(ws);
-                fs.unlinkSync(file.path);
                 note = await ctx.util.getAllInfoOfNotes([note]);
                 ctx.body = {
                     code: 0,
@@ -96,9 +96,11 @@ module.exports = {
                     fs.unlinkSync(`./note/${preNote.friendlyName}.md`)
                     let rs = fs.createReadStream(file.path);
                     let ws = fs.createWriteStream(`./note/${note.friendlyName}.md`);
+                    rs.on('close', () => { fs.unlinkSync(file.path); });
                     rs.pipe(ws);
+                } else {
+                    fs.unlinkSync(file.path);
                 };
-                fs.unlinkSync(file.path);
                 note = await ctx.util.getAllInfoOfNotes([note]);
                 ctx.body = {
                     code: 0,

@@ -15,7 +15,10 @@ module.exports = {
         maxage: 1000 * 60 * 60
     },
     bodyParser: {
-        multipart: true
+        multipart: true,
+        formidable: {
+            maxFieldsSize: 10 * 1024 * 1024
+        }
     },
     view: {
         extension: 'njk',
